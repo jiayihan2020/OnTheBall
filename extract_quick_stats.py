@@ -68,6 +68,7 @@ def extract_count():
                 total_actual_responses += int(v)
         combined_stats = f"""No. of unique participants: {unique_participants}
         Total number of actual responses: {total_actual_responses}"""
+        print("Exporting stats as a json file...")
         json.dump(json.dumps(combined_stats), json_file)
 
 
@@ -87,14 +88,50 @@ def threshold():
         if got_ball not in got_balls:
             got_balls.append(got_ball)
     no_balls = [no_ball for no_ball in non_omitted if no_ball not in got_balls]
-    with open(
-        f"Not playing ball {today_date.strftime('%d-%m-%Y')}.txt", "w", encoding="utf-8"
-    ) as text_file:
-        text_file.write(f"Report generated on {today_date.strftime('%d-%m-%Y')}\n")
-        for student in no_balls:
-            text_file.write(student + "\n")
+    if len(no_balls):
+        print(
+            "Students that are not on the ball detected. Exporting the Subject Code..."
+        )
+        with open(
+            f"Not playing ball {today_date.strftime('%d-%m-%Y')}.txt",
+            "w",
+            encoding="utf-8",
+        ) as text_file:
+            text_file.write(f"Report generated on {today_date.strftime('%d-%m-%Y')}\n")
+            for student in no_balls:
+                text_file.write(student + "\n")
+    else:
+        print("All students are compliant with the Sleep Diary so far.")
 
-    return df
 
+while True:
+    try:
+        user_input = int(
+            input(
+                """Please select what information you want (Enter number only):\n
+    1) Obtaining how many students have responded to the Sleep Diary survey.
+    2) Obtain information on who have not keyed in data for Sleep Diary for more than 3 days.
+    3) All of the above
+    4) Quit"""
+            )
+        )
 
-threshold()
+    except ValueError:
+        print("ERROR: Please key in an integer (From 1-4)!")
+        continue
+    else:
+        if user_input == 1:
+            extract_count()
+            break
+        elif user_input == 2:
+            threshold()
+            break
+        elif user_input == 3:
+            extract_count()
+            threshold()
+            break
+        elif user_input == 4:
+            break
+        else:
+            print("ERROR: Please input a correct number.")
+            continue
