@@ -88,7 +88,7 @@ def threshold():
         if got_ball not in got_balls:
             got_balls.append(got_ball)
     no_balls = [no_ball for no_ball in non_omitted if no_ball not in got_balls]
-    if len(no_balls):
+    if no_balls:
         print(
             "Students that are not on the ball detected. Exporting the Subject Code..."
         )
