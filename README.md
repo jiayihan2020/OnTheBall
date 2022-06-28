@@ -10,6 +10,10 @@ OnTheBall provides a quick statistics from the Qualtrics csv output on how many 
   - Pandas library
   - numpy library
 - raw csv file containing students' responses obtained from Qualtrics.
+- Supported Operating Systems:
+  - Windows
+  - Linux
+  - macOS (not tested)
 
 ## Features
 
@@ -22,6 +26,22 @@ OnTheBall has two features which users can choose to run:
 
 ## How to use
 
-Ensure that the csv file and `on_the_ball.py` resides in the same directory.
+Ensure that the csv file and `on_the_ball.py` resides in the same directory. You may edit the on_the_ball.py by using a text editor such as Notepad, VSCode, or Python's built in IDLE to edit the filepaths as required.
 
-Open `on_the_ball.py` using Python IDLE and press `F5` on the keyboard to run the script. Choose the option that you want from the menu, and the respective output file(s) will be generated.
+### Windows
+
+For Windows users, ensure that the `on_the_ball.bat`, `on_the_ball.py`, and the Sleep Diary csv from Qualtrics are located in the same directory.
+
+Double click on `on_the_ball.bat`. A command prompt containing a menu prompting you to choose which feature(s) you want to use should appear. Follow the instructions on the menu.
+
+### macOS and Linux
+
+For macOS and Linux users, ensure that `on_the_ball.py` and and the Sleep Diary csv from Qualtrics are located in the same directory.
+
+Launch the terminal and type in the following command:
+
+```bash
+./on_the_ball.py
+```
+
+A menu prompting you to choose which feature(s) you want to use should appear. Follow the instructions on the terminal's screen.
