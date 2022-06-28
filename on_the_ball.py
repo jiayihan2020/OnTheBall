@@ -112,7 +112,7 @@ while True:
     1) Obtaining how many students have responded to the Sleep Diary survey.
     2) Obtain information on who have not keyed in data for Sleep Diary for more than 3 days.
     3) All of the above
-    4) Quit"""
+    4) Quit\n"""
             )
         )
 
